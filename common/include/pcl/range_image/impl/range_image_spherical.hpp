@@ -32,9 +32,12 @@
  *  POSSIBILITY OF SUCH DAMAGE.
  *
  */
+#ifndef PCL_RANGE_IMAGE_SPHERICAL_IMPL_HPP_
+#define PCL_RANGE_IMAGE_SPHERICAL_IMPL_HPP_
 
 #include <pcl/pcl_macros.h>
 #include <pcl/common/eigen.h>
+#include <pcl/range_image/range_image_spherical.h>
 
 namespace pcl
 {
@@ -76,3 +79,5 @@ RangeImageSpherical::getImagePointFromAngles (float angle_x, float angle_y, floa
   image_y = (angle_y + 0.5f*static_cast<float> (M_PI))*angular_resolution_y_reciprocal_ - static_cast<float> (image_offset_y_);
 }
 }  // namespace end
+
+#endif

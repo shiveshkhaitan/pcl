@@ -41,6 +41,7 @@
 
 #include <pcl/pcl_macros.h>
 #include <pcl/common/eigen.h>
+#include <pcl/range_image/range_image_planar.h>
 
 namespace pcl
 {

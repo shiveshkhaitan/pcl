@@ -44,6 +44,7 @@
 #include <pcl/common/eigen.h>
 #include <pcl/common/transforms.h>
 #include <pcl/exceptions.h>
+#include <pcl/common/pca.h>
 
 /////////////////////////////////////////////////////////////////////////////////////////
 template<typename PointT> bool

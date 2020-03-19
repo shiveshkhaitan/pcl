@@ -35,7 +35,11 @@
  *
  */
 
+#ifndef PCL_TRANSFORMATION_FROM_CORRESPONDENCES_IMPL_HPP_
+#define PCL_TRANSFORMATION_FROM_CORRESPONDENCES_IMPL_HPP_
+
 #include <pcl/common/eigen.h>
+#include <pcl/common/transformation_from_correspondences.h>
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 inline void
@@ -91,3 +95,5 @@ pcl::TransformationFromCorrespondences::getTransformation ()
   
   return (ret);
 }
+
+#endif

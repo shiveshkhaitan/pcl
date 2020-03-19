@@ -42,6 +42,7 @@
 #define PCL_COMMON_INTENSITY_FIELD_ACCESSOR_IMPL_HPP
 
 #include <pcl/point_types.h>
+#include <pcl/common/intensity.h>
 namespace pcl
 {
   namespace common

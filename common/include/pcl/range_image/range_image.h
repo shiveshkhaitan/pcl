@@ -93,7 +93,7 @@ namespace pcl
         * \return an Eigen::Vector3f representation of the input point
         */
       static inline Eigen::Vector3f
-      getEigenVector3f (const PointWithRange& point);
+      getEigenVector3f_static (const PointWithRange& point);
       
       /** \brief Get the transformation that transforms the given coordinate frame into CAMERA_FRAME
         * \param coordinate_frame the input coordinate frame
@@ -588,8 +588,8 @@ namespace pcl
       
       /** Calculate getAcutenessValue for every point */
       PCL_EXPORTS void
-      getAcutenessValueImages (int pixel_distance, float*& acuteness_value_image_x,
-                               float*& acuteness_value_image_y) const;
+      getAcutenessValueImages (int pixel_distance, uintptr_t* acuteness_value_image_x,
+                               uintptr_t* acuteness_value_image_y) const;
       
       /** Calculates, how much the surface changes at a point. Pi meaning a flat suface and 0.0f
        *  would be a needle point */
@@ -598,12 +598,12 @@ namespace pcl
       //                   const PointWithRange& neighbor2) const;
       
       /** Calculates, how much the surface changes at a point. 1 meaning a 90deg angle and 0 a flat suface */
-      PCL_EXPORTS float
-      getSurfaceChange (int x, int y, int radius) const;
+      // PCL_EXPORTS float
+      // getSurfaceChange (int x, int y, int radius) const;
       
       /** Uses the above function for every point in the image */
-      PCL_EXPORTS float*
-      getSurfaceChangeImage (int radius) const;
+      // PCL_EXPORTS float*
+      // getSurfaceChangeImage (int radius) const;
       
       /** Calculates, how much the surface changes at a point. Returns an angle [0.0f, PI] for x and y direction.
        *  A return value of -INFINITY means that a point was unobserved. */
@@ -612,7 +612,7 @@ namespace pcl
       
       /** Uses the above function for every point in the image */
       PCL_EXPORTS void
-      getSurfaceAngleChangeImages (int radius, float*& angle_change_image_x, float*& angle_change_image_y) const;
+      getSurfaceAngleChangeImages (int radius, uintptr_t* angle_change_image_x, uintptr_t* angle_change_image_y) const;
       
       /** Calculates the curvature in a point using pca */
       inline float
@@ -698,7 +698,7 @@ namespace pcl
       /** Get the integral image of the range values (used for fast blur operations).
        *  You are responsible for deleting it after usage! */
       PCL_EXPORTS void
-      getIntegralImage (float*& integral_image, int*& valid_points_num_image) const;
+      getIntegralImage (uintptr_t* integral_image, uintptr_t* valid_points_num_image) const;
       
       /** Get a blurred version of the range image using box filters on the provided integral image*/
       PCL_EXPORTS void     // Template necessary so that this function also works in derived classes

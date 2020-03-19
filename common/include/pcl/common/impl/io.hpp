@@ -44,6 +44,7 @@
 #include <pcl/common/concatenate.h>
 #include <pcl/common/copy_point.h>
 #include <pcl/point_types.h>
+#include <pcl/common/io.h>
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 template <typename PointT> int

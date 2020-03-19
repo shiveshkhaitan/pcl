@@ -382,12 +382,12 @@ POINT_CLOUD_REGISTER_POINT_STRUCT (pcl::_Intensity32u,
 )
 POINT_CLOUD_REGISTER_POINT_WRAPPER(pcl::Intensity32u, pcl::_Intensity32u)
 
-POINT_CLOUD_REGISTER_POINT_STRUCT (pcl::_PointXYZ,
-    (float, x, x)
-    (float, y, y)
-    (float, z, z)
-)
-POINT_CLOUD_REGISTER_POINT_WRAPPER(pcl::PointXYZ, pcl::_PointXYZ)
+// POINT_CLOUD_REGISTER_POINT_STRUCT (pcl::_PointXYZ,
+//     (float, x, x)
+//     (float, y, y)
+//     (float, z, z)
+// )
+// POINT_CLOUD_REGISTER_POINT_WRAPPER(pcl::PointXYZ, pcl::_PointXYZ)
 
 POINT_CLOUD_REGISTER_POINT_STRUCT (pcl::_PointXYZRGBA,
     (float, x, x)

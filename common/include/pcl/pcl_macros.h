@@ -247,10 +247,10 @@ pcl_round (float number)
     #ifdef PCLAPI_EXPORTS
         #define PCL_EXPORTS __declspec(dllexport)
     #else
-        #define PCL_EXPORTS
+        #define PCL_EXPORTS __attribute__((visibility("default")))
     #endif
 #else
-    #define PCL_EXPORTS
+    #define PCL_EXPORTS __attribute__((visibility("default")))
 #endif
 
 #if defined WIN32 || defined _WIN32

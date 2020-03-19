@@ -291,12 +291,14 @@ RangeImage::getRangesArray () const
 
 /////////////////////////////////////////////////////////////////////////
 void 
-RangeImage::getIntegralImage (float*& integral_image, int*& valid_points_num_image) const
+RangeImage::getIntegralImage (uintptr_t* integral_image, uintptr_t* valid_points_num_image) const
 {
-  integral_image = new float[width*height];
-  float* integral_image_ptr = integral_image;
-  valid_points_num_image = new int[width*height];
-  int* valid_points_num_image_ptr = valid_points_num_image;
+  float ** temp = (float**)integral_image; 
+  int ** temp2 = (int**)valid_points_num_image;
+  *temp = new float[width*height];
+  float* integral_image_ptr = *temp;
+  *temp2 = new int[width*height];
+  int* valid_points_num_image_ptr = *temp2;
   for (int y = 0; y < static_cast<int> (height); ++y)
   {
     for (int x = 0; x < static_cast<int> (width); ++x)
@@ -314,18 +316,18 @@ RangeImage::getIntegralImage (float*& integral_image, int*& valid_points_num_ima
       int left_valid_points=0, top_left_valid_points=0, top_valid_points=0;
       if (x>0)
       {
-        left_value = integral_image[y*width+x-1];
-        left_valid_points = valid_points_num_image[y*width+x-1];
+        left_value = *temp[y*width+x-1];
+        left_valid_points = *temp2[y*width+x-1];
         if (y>0)
         {
-          top_left_value = integral_image[ (y-1)*width+x-1];
-          top_left_valid_points = valid_points_num_image[ (y-1)*width+x-1];
+          top_left_value = *temp[ (y-1)*width+x-1];
+          top_left_valid_points = *temp2[ (y-1)*width+x-1];
         }
       }
       if (y>0)
       {
-        top_value = integral_image[ (y-1)*width+x];
-        top_valid_points = valid_points_num_image[ (y-1)*width+x];
+        top_value = *temp[ (y-1)*width+x];
+        top_valid_points = *temp2[ (y-1)*width+x];
       }
       
       integral_pixel += left_value + top_value - top_left_value;
@@ -715,38 +717,43 @@ RangeImage::getNormalBasedUprightTransformation (const Eigen::Vector3f& point, f
 
 /////////////////////////////////////////////////////////////////////////
 void 
-RangeImage::getSurfaceAngleChangeImages (int radius, float*& angle_change_image_x, float*& angle_change_image_y) const
+RangeImage::getSurfaceAngleChangeImages (int radius, uintptr_t* angle_change_image_x, uintptr_t* angle_change_image_y) const
 {
+  float ** temp = (float**)angle_change_image_x;
+  float ** temp2 = (float**)angle_change_image_y;
+
   MEASURE_FUNCTION_TIME;
   int size = width*height;
-  angle_change_image_x = new float[size];
-  angle_change_image_y = new float[size];
+  *temp = new float[size];
+  *temp2 = new float[size];
   for (int y=0; y<int (height); ++y)
   {
     for (int x=0; x<int (width); ++x)
     {
       int index = y*width+x;
-      getSurfaceAngleChange (x, y, radius, angle_change_image_x[index], angle_change_image_y[index]);
+      getSurfaceAngleChange (x, y, radius, *temp[index], *temp2[index]);
     }
   }
 }
 
 /////////////////////////////////////////////////////////////////////////
 void 
-RangeImage::getAcutenessValueImages (int pixel_distance, float*& acuteness_value_image_x,
-                                     float*& acuteness_value_image_y) const
+RangeImage::getAcutenessValueImages (int pixel_distance, uintptr_t* acuteness_value_image_x,
+                                     uintptr_t* acuteness_value_image_y) const
 {
+  float ** temp = (float**)acuteness_value_image_x;
+  float ** temp2 = (float**)acuteness_value_image_y;
   MEASURE_FUNCTION_TIME;
   int size = width*height;
-  acuteness_value_image_x = new float[size];
-  acuteness_value_image_y = new float[size];
+  *temp = new float[size];
+  *temp2 = new float[size];
   for (int y=0; y<int (height); ++y)
   {
     for (int x=0; x<int (width); ++x)
     {
       int index = y*width+x;
-      acuteness_value_image_x[index] = getAcutenessValue (x, y, x+pixel_distance, y);
-      acuteness_value_image_y[index] = getAcutenessValue (x, y, x, y+pixel_distance);
+      *temp[index] = getAcutenessValue (x, y, x+pixel_distance, y);
+      *temp2[index] = getAcutenessValue (x, y, x, y+pixel_distance);
     }
   }
 }
@@ -966,7 +973,7 @@ RangeImage::getBlurredImage (int blur_radius, RangeImage& blurred_image) const
   {
     float* integral_image;
     int* valid_points_num_image;
-    getIntegralImage (integral_image, valid_points_num_image);
+    getIntegralImage ((uintptr_t*)integral_image, (uintptr_t*)valid_points_num_image);
     getBlurredImageUsingIntegralImage (blur_radius, integral_image, valid_points_num_image, blurred_image);
     delete[] integral_image;
     delete[] valid_points_num_image;

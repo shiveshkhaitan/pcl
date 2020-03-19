@@ -38,6 +38,8 @@
 #ifndef PCL_COMMON_VECTOR_AVERAGE_IMPL_HPP_
 #define PCL_COMMON_VECTOR_AVERAGE_IMPL_HPP_
 
+#include <pcl/common/vector_average.h>
+
 namespace pcl
 {
   template <typename real, int dimension>

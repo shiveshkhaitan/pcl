@@ -40,6 +40,8 @@
 #ifndef PCL_POINT_CLOUD_SPRING_IMPL_HPP_
 #define PCL_POINT_CLOUD_SPRING_IMPL_HPP_
 
+#include <pcl/common/spring.h>
+
 template <typename PointT> void 
 pcl::common::expandColumns (const PointCloud<PointT>& input, PointCloud<PointT>& output, 
                             const PointT& val, const std::size_t& amount)

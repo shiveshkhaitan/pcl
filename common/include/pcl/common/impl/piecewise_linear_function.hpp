@@ -35,6 +35,11 @@
 
 /* \author Bastian Steder */
 
+#ifndef PCL_PIECEWISE_LINEAR_FUNCTION_HPP_
+#define PCL_PIECEWISE_LINEAR_FUNCTION_HPP_
+
+#include <cmath>
+#include <pcl/common/piecewise_linear_function.h>
 
 namespace pcl {
 
@@ -54,3 +59,5 @@ inline float PiecewiseLinearFunction::getValue(float point) const
 }
 
 }  // end namespace pcl
+
+#endif      // PCL_PIECEWISE_LINEAR_FUNCTION

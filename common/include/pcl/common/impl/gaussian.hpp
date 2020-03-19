@@ -41,6 +41,7 @@
 #define PCL_GAUSSIAN_KERNEL_IMPL
 
 #include <pcl/exceptions.h>
+#include <pcl/common/gaussian.h>
 
 template <typename PointT> void
 pcl::GaussianKernel::convolveRows(const pcl::PointCloud<PointT> &input,

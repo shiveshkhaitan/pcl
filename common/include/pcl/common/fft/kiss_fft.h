@@ -49,10 +49,19 @@ extern "C" {
 # endif
 #endif
 
+#define MAXFACTORS 32
+
 typedef struct {
     kiss_fft_scalar r;
     kiss_fft_scalar i;
 }kiss_fft_cpx;
+
+struct kiss_fft_state{
+    int nfft;
+    int inverse;
+    int factors[2*MAXFACTORS];
+    kiss_fft_cpx twiddles[1];
+};
 
 typedef struct kiss_fft_state* kiss_fft_cfg;
 

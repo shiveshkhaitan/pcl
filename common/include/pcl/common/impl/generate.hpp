@@ -41,6 +41,7 @@
 #define PCL_COMMON_GENERATE_HPP_
 
 #include <pcl/console/print.h>
+#include <pcl/common/generate.h>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 template <typename PointT, typename GeneratorT>

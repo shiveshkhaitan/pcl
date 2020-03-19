@@ -41,6 +41,7 @@
 
 #include <pcl/pcl_macros.h>
 #include <pcl/common/distances.h>
+#include <pcl/range_image/range_image.h>
 
 namespace pcl
 {
@@ -789,7 +790,7 @@ RangeImage::getMaxAngleSize (const Eigen::Affine3f& viewer_pose, const Eigen::Ve
 
 /////////////////////////////////////////////////////////////////////////
 Eigen::Vector3f 
-RangeImage::getEigenVector3f (const PointWithRange& point)
+RangeImage::getEigenVector3f_static (const PointWithRange& point)
 {
   return Eigen::Vector3f (point.x, point.y, point.z);
 }
@@ -887,7 +888,7 @@ RangeImage::getImpactAngleBasedOnLocalNormal (int x, int y, int radius) const
   Eigen::Vector3f normal;
   if (!getNormalForClosestNeighbors (x, y, radius, point, no_of_nearest_neighbors, normal, 1))
     return -std::numeric_limits<float>::infinity ();
-  return deg2rad (90.0f) - std::acos (normal.dot ( (getSensorPos ()-getEigenVector3f (point)).normalized ()));
+  return deg2rad (90.0f) - std::acos (normal.dot ( (getSensorPos ()-getEigenVector3f_static (point)).normalized ()));
 }
 
 

@@ -39,6 +39,7 @@
 #define __PCL_ORGANIZED_PROJECTION_MATRIX_HPP__
 
 #include <pcl/cloud_iterator.h>
+#include <pcl/common/projection_matrix.h>
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 namespace pcl

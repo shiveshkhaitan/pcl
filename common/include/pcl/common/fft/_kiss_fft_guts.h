@@ -16,21 +16,21 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
    defines kiss_fft_scalar as either short or a float type
    and defines
    struct kiss_fft_cpx { kiss_fft_scalar r; kiss_fft_scalar i; }; */
-#include "kiss_fft.h"
+#include <pcl/common/fft/kiss_fft.h>
 #include <limits.h>
 
-#define MAXFACTORS 32
+// #define MAXFACTORS 32
 /* e.g. an fft of length 128 has 4 factors 
  as far as kissfft is concerned
  4*4*4*2
  */
 
-struct kiss_fft_state{
-    int nfft;
-    int inverse;
-    int factors[2*MAXFACTORS];
-    kiss_fft_cpx twiddles[1];
-};
+// struct kiss_fft_state{
+//     int nfft;
+//     int inverse;
+//     int factors[2*MAXFACTORS];
+//     kiss_fft_cpx twiddles[1];
+// };
 
 /*
   Explanation of macros dealing with complex math:

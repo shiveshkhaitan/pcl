@@ -37,6 +37,9 @@
  *
  */
 
+#ifndef PCL_TRANSFORMS_IMPL_HPP_
+#define PCL_TRANSFORMS_IMPL_HPP_
+
 #if defined(__SSE2__)
 #include <xmmintrin.h>
 #endif
@@ -44,6 +47,8 @@
 #if defined(__AVX__)
 #include <immintrin.h>
 #endif
+
+#include <pcl/common/transforms.h>
 
 namespace pcl
 {
@@ -474,3 +479,4 @@ pcl::getPrincipalTransformation (const pcl::PointCloud<PointT> &cloud,
   return (std::min (rel1, rel2));
 }
 
+#endif

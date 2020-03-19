@@ -38,6 +38,8 @@
 #ifndef PCL_POLYNOMIAL_CALCULATIONS_HPP_
 #define PCL_POLYNOMIAL_CALCULATIONS_HPP_
 
+#include <pcl/common/polynomial_calculations.h>
+
 ////////////////////////////////////
 
 template <typename real>

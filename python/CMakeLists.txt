@@ -13,7 +13,7 @@ if(NOT build)
 endif()
 
 execute_process (COMMAND
-	/usr/local/bin/binder --root-module pcl_python --prefix ${CMAKE_CURRENT_LIST_DIR}/ --bind "" --config ${CMAKE_CURRENT_LIST_DIR}/pcl.config ${CMAKE_CURRENT_LIST_DIR}/all_cmake_includes.hpp -- -std=c++14 -I ${CMAKE_CURRENT_LIST_DIR}/include -I ${PCL_SOURCE_DIR}/build/include -I ${PCL_SOURCE_DIR}/common/include -I ${EIGEN_INCLUDE_DIRS} -DNDEBUG
+	/usr/local/bin/binder --root-module pcl_python --prefix ${CMAKE_CURRENT_LIST_DIR}/ --bind "" --config ${CMAKE_CURRENT_LIST_DIR}/pcl.config ${CMAKE_CURRENT_LIST_DIR}/all_cmake_includes.hpp -- -std=c++14 -I ${PCL_SOURCE_DIR}/build/include -I ${PCL_SOURCE_DIR}/common/include -I ${EIGEN_INCLUDE_DIRS} -DNDEBUG
 )
 
 find_package(pybind11 REQUIRED)

@@ -17,7 +17,9 @@ execute_process (COMMAND
 )
 
 find_package(pybind11 REQUIRED)
+find_package(binder REQUIRED)
 include_directories(${pybind11_INCLUDE_DIRS})
+include_directories(${binder_INCLUDE_DIRS})
 
 set_property(GLOBAL PROPERTY POSITION_INDEPENDENT_CODE ON)
 add_definitions(-DNDEBUG)

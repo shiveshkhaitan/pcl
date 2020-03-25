@@ -43,7 +43,7 @@
 
 //////////////////////////////////////////////////////////////////////////
 void
-getFieldsSizes (const std::vector<pcl::PCLPointField> &fields,
+pcl::getFieldsSizes (const std::vector<pcl::PCLPointField> &fields,
                 std::vector<int> &fields_sizes)
 {
   int valid = 0;

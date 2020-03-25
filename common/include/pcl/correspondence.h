@@ -63,11 +63,11 @@ namespace pcl
     /** \brief Index of the matching (target) point. Set to -1 if no correspondence found. */
     int index_match = -1;
     /** \brief Distance between the corresponding points, or the weight denoting the confidence in correspondence estimation */
-    union
-    {
+    // union
+    // {
       float distance = std::numeric_limits<float>::max();
       float weight;
-    };
+    // };
     
     /** \brief Standard constructor. 
       * Sets \ref index_query to 0, \ref index_match to -1, and \ref distance to FLT_MAX.

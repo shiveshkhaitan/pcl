@@ -51,7 +51,7 @@ namespace pcl
     * \author Bastian Steder
     * \ingroup range_image
     */
-  class RangeImage : public pcl::PointCloud<PointWithRange>
+  class PCL_EXPORTS RangeImage : public pcl::PointCloud<PointWithRange>
   {
     public:
       // =====TYPEDEFS=====

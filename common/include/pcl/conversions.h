@@ -39,9 +39,9 @@
 
 #pragma once
 
-#ifdef __GNUC__
-#pragma GCC system_header
-#endif
+// #ifdef __GNUC__
+// #pragma GCC system_header
+// #endif
 
 #include <pcl/PCLPointField.h>
 #include <pcl/PCLPointCloud2.h>
